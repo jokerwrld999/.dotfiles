@@ -80,21 +80,15 @@
     # EDITOR = "emacs";
   };
 
-  # programs.bash.enable = true;
-  # programs.bash.shellAliases = {
-  #   ll = "ls -l";
-  #   ".." = "cd ..";
-  # };
+  programs.git = {
+    enable = true;
+    userName = "jokerwrld999";
+    userEmail = "ifalaleev49@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
+  };
 
-  # programs.bash = {
-  #   enable = true;
-  #   shellAliases = myAliases;
-  # };
-
-  # programs.zsh = {
-  #   enable = true;
-  #   shellAliases = myAliases;
-  # };
 
   # home.file.".config/hypr/hyprland.conf".text = '' 
   
