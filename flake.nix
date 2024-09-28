@@ -11,9 +11,14 @@
 
     outputs = { self, nixpkgs, vscode-server, home-manager, ... }:
         let
-            lib = nixpkgs.lib;
             system = "x86_64-linux";
+            lib = nixpkgs.lib;
             pkgs = nixpkgs.legacyPackages.${system};
+
+            forAllSystems = inputs.nixpkgs.lib.genAttrs supportedSystems;
+
+            nixpkgsFor =
+                forAllSystems (system: import inputs.nixpkgs { inherit system; });
         in {
         nixosConfigurations = {
             nixos = lib.nixosSystem {
